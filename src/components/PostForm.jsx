@@ -1,6 +1,6 @@
 import React from "react";
 
-const PostForm = () => {
+const PostForm = ({ onAddPost }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [submitting, setSubmitting] = useState(false);
