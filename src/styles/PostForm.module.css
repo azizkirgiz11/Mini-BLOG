@@ -1,0 +1,87 @@
+/* PostForm.module.css */
+.postForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formInput {
+  padding: 12px 15px;
+  border: 1px solid #44A194;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: #44A194;
+  box-shadow: 0 0 5px rgba(68, 161, 148, 0.3);
+}
+
+textarea.formInput {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.formInput[type="file"] {
+  padding: 8px;
+}
+
+.submitBtn {
+  background: #44A194;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(68, 161, 148, 0.3);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.imageUploadLabel {
+  display: block;
+  margin: 16px 0 8px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+}
+
+.imagePreviewWrapper {
+  margin-bottom: 16px;
+}
+
+.imagePreview {
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .postForm {
+    gap: 15px;
+  }
+
+  .formInput {
+    padding: 10px 12px;
+  }
+
+  .submitBtn {
+    padding: 10px 16px;
+  }
+}

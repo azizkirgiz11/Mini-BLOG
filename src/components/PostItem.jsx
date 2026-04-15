@@ -1,24 +1,39 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
+import styles from "../styles/PostItem.module.css";
 
 const PostItem = ({ post }) => {
-  const excerpt = post.content.substring(0, 100) + (post.content.length > 100 ? '...' : '')
-  const date = new Date(post.createdAt).toLocaleDateString()
+  const excerpt =
+    post.content.substring(0, 100) + (post.content.length > 100 ? "..." : "");
+  const date = new Date(post.createdAt).toLocaleDateString();
 
   return (
-    <div className="post-item">
-      <h3>
-        <Link to={`/post/${post.id}`}>{post.title}</Link>
-      </h3>
-      <p className="post-excerpt">{excerpt}</p>
-      <div className="post-meta">
-        <span className="post-date">{date}</span>
-        <Link to={`/post/${post.id}`} className="read-more">
-          Read More →
-        </Link>
+    <Link to={`/post/${post.id}`} className={styles.postItemLink}>
+      <div className={styles.postItem}>
+        {post.imageData ? (
+          <div className={styles.postImageWrapper}>
+            <img
+              src={post.imageData}
+              alt={post.title}
+              className={styles.postImage}
+            />
+          </div>
+        ) : (
+          <div className={styles.noImagePlaceholder}>No Image</div>
+        )}
+        <h3>
+          <Link to={`/post/${post.id}`}>{post.title}</Link>
+        </h3>
+        <p className={styles.postExcerpt}>{excerpt}</p>
+        <div className={styles.postMeta}>
+          <span className={styles.postDate}>{date}</span>
+          <Link to={`/post/${post.id}`} className={styles.readMore}>
+            Read More →
+          </Link>
+        </div>
       </div>
-    </div>
-  )
-}
+    </Link>
+  );
+};
 
-export default PostItem
+export default PostItem;

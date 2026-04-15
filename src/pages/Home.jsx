@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PostForm from '../components/PostForm'
 import PostList from '../components/PostList'
+import styles from '../styles/Home.module.css'
 
 const API_URL = 'https://4ff0af643300b0b6.mokky.dev/postlist'
 
@@ -45,15 +46,15 @@ const Home = () => {
   }
 
   return (
-    <div className="home-container">
-      <section className="create-post-section">
+    <div className={styles.homeContainer}>
+      <section className={styles.createPostSection}>
         <h2>Create New Post</h2>
         <PostForm onAddPost={handleAddPost} />
       </section>
 
-      <section className="posts-section">
+      <section className={styles.postsSection}>
         <h2>All Posts</h2>
-        {loading ? (<p className="loading">Loading...</p>) : (<PostList posts={posts} />)}
+        {loading ? (<p className={styles.loading}>Loading...</p>) : (<PostList posts={posts} />)}
       </section>
     </div>
   )
